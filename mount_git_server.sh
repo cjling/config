@@ -3,11 +3,14 @@
 #git directionay
 git_server='/home/cjling/006_git_server'
 
+#server password
+password='916sa((('
+
 #cjling
-#proj_name='k-vim'
+proj_name='k-vim'
 #proj_name='leetcode'
 #proj_name='linux_package'
-proj_name='linux_setting'
+#proj_name='linux_setting'
 #proj_name='oh-my-zsh'
 
 #proj
@@ -21,4 +24,4 @@ path='clone_from_git'
 #path='clone_from_svn'
 
 mkdir $git_server/$proj_name
-mount -t cifs -o username=10132915,domain=zte.intra //$pc_ip/proj/001_git/$path/$proj_name $git_server/$proj_name
+mount -t cifs -o username=10132915,domain=zte.intra,password=$password //$pc_ip/proj/001_git/$path/$proj_name $git_server/$proj_name
