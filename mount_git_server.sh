@@ -4,7 +4,7 @@
 pc_ip='10.74.30.154'
 
 #server password
-password='916sa((('
+password='916sa!!!'
 
 #local git directionay
 git_server='/home/cjling/006_git_server'
