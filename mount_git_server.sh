@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #server ip
-pc_ip='10.74.30.154'
+pc_ip='10.74.30.141'
 
 #server password
 password='916sa!!!'
@@ -14,7 +14,7 @@ proj_svn_names=(ZXCCP-VPlat_CVM-trunk-source.repo-src-openstack-nova \
                 ZXCCP-VPlat_CVM-trunk-source.repo-src-python-novaclient \
                 ZXCCP-VPlat_CVM-trunk-source.repo-src-openstack-cinder \
                 ZXCCP-VPlat_CVM-trunk-source.repo-src-openstack-neutron)
-proj_git_names=(k-vim leetcode linux_package linux_setting oh-my-zsh)
+proj_git_names=(k-vim leetcode linux_package linux_setting oh-my-zsh phabricator)
 
 #paths
 path_git='clone_from_git'
