@@ -1,11 +1,14 @@
 #!/bin/bash
 
+cjling_work_root_dir='/home/cjling'
 
-cjling_proj='/home/cjling/001_proj'
-cjling_package='/home/cjling/002_package'
-cjling_repo='/home/cjling/003_repo'
-cjling_vm='/home/cjling/004_vm'
-cjling_mnt='/home/cjling/005_mnt'
-cjling_xxxx='/home/cjling/100_xxxx'
+cjling_work_dirs=(001_proj \
+                  002_package \
+                  003_repo \
+                  004_vm \
+                  005_mnt \
+                  100_xxxx)
 
-sudo mkdir -p {$cjling_package,$cjling_proj,$cjling_xxxx,$cjling_mnt,$cjling_repo,$cjling_vm}
+for dir in ${cjling_work_dirs[@]}; do
+    sudo mkdir -p $cjling_work_root_dir/$dir
+done
