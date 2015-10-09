@@ -1,10 +1,10 @@
 #!/bin/bash
 
 date=$(date +"%Y-%m-%d")
-backup_dir='/home/cjling/002_package/phabricator/backup'
+backup_dir='/home/cjling/package/phabricator/backup'
 backed_num=$(find $backup_dir -type f|wc -l)
 backed_plan=4
-back_bin='/home/cjling/002_package/phabricator/phabricator/bin/storage'
+back_bin='/home/cjling/package/phabricator/phabricator/bin/storage'
 
 if [ $backed_num -ge $backed_plan ]
 then
