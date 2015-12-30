@@ -21,6 +21,7 @@ def TriggerSendMail(list, cc, title_path, context_path):
         title_file = open(title_path)
         context_file = open(context_path)
         para["TITLE"] = title_file.read()
+        para["TITLE"] = "[Phabricator] " + para["TITLE"]
         para["CONTEXT"] = context_file.read()
         os.remove(title_path)
         os.remove(context_path)
