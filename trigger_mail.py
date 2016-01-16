@@ -31,7 +31,7 @@ def TriggerSendMail(list, cc, title_path, context_path):
         context_file = open(context_path)
         para["CONTEXT"] = context_file.read()
         para["TITLE"] = title_file.read()
-        if "july_talk" in para["TITLE"]:
+        if "july_talk" in para["TITLE"] or "mars_talk" in para["TITLE"]:
             para["TITLE"] = "[july_talk] " + GetJulyTalkInfo(para["CONTEXT"])
         para["TITLE"] = "[Phabricator] " + para["TITLE"]
         os.remove(title_path)
