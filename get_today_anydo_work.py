@@ -31,7 +31,7 @@ def save_log(user, tasks):
             for sub in subtask_list:
                 log += "%s\n" %sub['title']
 
-        log += "\n"
+        log += "----------------------\n"
 
     log_task = Task.create(user=user, title=get_today_title(), priority="Normal", repeatingMethod='TASK_REPEAT_OFF')
     log_task.add_note(log)
