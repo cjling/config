@@ -14,27 +14,34 @@ def get_today_title():
 
 def save_log(user, tasks):
     log = ""
+    index = 1
+    gap = ".\n.\n"
+
     for task in tasks:
         if task['status'] == "CHECKED":
             continue
-
-        log += "%s\n" %task['title']
-
+        log += "%d.%s\n" %(index, task['title'])
+        index += 1
         if len(task.notes()) != 0:
-            log += "note:\n"
+            log += "--Note:\n"
             for note in task.notes():
                 log += "%s\n" %note
 
         subtask_list = [subtask for subtask in task['subTasks'] if subtask['status'] != "CHECKED"]
         if len(subtask_list) != 0:
-            log += "subtasks:\n"
+            log += "--Subtasks:\n"
+            sub_index = 1
             for sub in subtask_list:
-                log += "%s\n" %sub['title']
+                log += "%d)%s\n" %(sub_index, sub['title'])
+                sub_index += 1
+        log += gap
 
-        log += "----------------------\n"
+    if log[-4:] == gap:
+        log = log[:-4]
 
     log_task = Task.create(user=user, title=get_today_title(), priority="Normal", repeatingMethod='TASK_REPEAT_OFF')
     log_task.add_note(log)
+    print "save log sucessfully!"
 
 
 def print_task(task):
@@ -53,9 +60,7 @@ def print_task(task):
         print "subtasks:"
         for subtask in subtask_list:
             print subtask['title']
-
-    print
-    print
+    print "\n\n"
 
 
 def is_doing(due_date):
