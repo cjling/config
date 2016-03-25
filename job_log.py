@@ -4,6 +4,7 @@
 from anydo_api.client import Client
 from anydo_api.task import Task
 from datetime import datetime
+import time
 
 
 def get_today_title():
@@ -85,6 +86,7 @@ def start_wrapper():
         start()
         return True
     except Exception, e:
+        time.sleep(2)
         return False
 
 
