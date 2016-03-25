@@ -80,5 +80,15 @@ def start():
     save_log(user, tasks)
 
 
+def start_wrapper():
+    try:
+        start()
+        return True
+    except Exception, e:
+        return False
+
+
 if __name__ == '__main__':
-    start()
+    flag = False
+    while not flag:
+        flag = start_wrapper()
