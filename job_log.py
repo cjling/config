@@ -5,6 +5,8 @@ from anydo_api.client import Client
 from anydo_api.task import Task
 from datetime import datetime
 import time
+import os
+from geeknote.geeknote import Notes
 
 
 def get_today_title():
@@ -15,12 +17,13 @@ def get_today_title():
 def save_log(user, tasks):
     log = ""
     index = 1
-    gap = ".\n.\n"
+    # gap = ".\n.\n"
+    gap = "\n\n"
 
     for task in tasks:
         if task['status'] == "CHECKED":
             continue
-        log += "%d.%s\n" %(index, task['title'])
+        log += "#%d.%s\n" %(index, task['title'])
         index += 1
         if len(task.notes()) != 0:
             log += "--Note:\n"
@@ -36,11 +39,19 @@ def save_log(user, tasks):
                 sub_index += 1
         log += gap
 
-    if log[-4:] == gap:
-        log = log[:-4]
+    if log[-2:] == gap:
+        log = log[:-2]
 
-    log_task = Task.create(user=user, title=get_today_title(), priority="Normal", repeatingMethod='TASK_REPEAT_OFF')
-    log_task.add_note(log)
+    # log_task = Task.create(user=user, title=get_today_title(), priority="Normal", repeatingMethod='TASK_REPEAT_OFF')
+    # log_task.add_note(log)
+    # cmd = "geeknote create --title %s --context %s --notebook \"98_工作日志\"" %(get_today_title(), log)
+    # os.system(cmd)
+
+    print "will cache temp log"
+    f = open("./temp.log", "w")
+    f.write(log)
+    f.close()
+    Notes().create(title=get_today_title(), content="./temp.log", notebook="98_工作日志")
     print "save log sucessfully!"
 
 
@@ -86,7 +97,9 @@ def start_wrapper():
         start()
         return True
     except Exception, e:
-        time.sleep(2)
+        print "something wrong happened try ag after 4 second:"
+        print e
+        time.sleep(4)
         return False
 
 
