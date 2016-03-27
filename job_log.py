@@ -2,57 +2,17 @@
 # encoding: utf-8
 
 from anydo_api.client import Client
-from anydo_api.task import Task
 from datetime import datetime
 import time
-import os
 from geeknote.geeknote import Notes
+import os
+import chardet
+from anydo_api.task import Task
 
 
 def get_today_title():
     now_date = datetime.today()
     return "%d/%d/%d" %(now_date.year, now_date.month, now_date.day)
-
-
-def save_log(user, tasks):
-    log = ""
-    index = 1
-    # gap = ".\n.\n"
-    gap = "\n\n"
-
-    for task in tasks:
-        if task['status'] == "CHECKED":
-            continue
-        log += "#%d.%s\n" %(index, task['title'])
-        index += 1
-        if len(task.notes()) != 0:
-            log += "--Note:\n"
-            for note in task.notes():
-                log += "%s\n" %note
-
-        subtask_list = [subtask for subtask in task['subTasks'] if subtask['status'] != "CHECKED"]
-        if len(subtask_list) != 0:
-            log += "--Subtasks:\n"
-            sub_index = 1
-            for sub in subtask_list:
-                log += "%d)%s\n" %(sub_index, sub['title'])
-                sub_index += 1
-        log += gap
-
-    if log[-2:] == gap:
-        log = log[:-2]
-
-    # log_task = Task.create(user=user, title=get_today_title(), priority="Normal", repeatingMethod='TASK_REPEAT_OFF')
-    # log_task.add_note(log)
-    # cmd = "geeknote create --title %s --context %s --notebook \"98_工作日志\"" %(get_today_title(), log)
-    # os.system(cmd)
-
-    print "will cache temp log"
-    f = open("./temp.log", "w")
-    f.write(log)
-    f.close()
-    Notes().create(title=get_today_title(), content="./temp.log", notebook="98_工作日志")
-    print "save log sucessfully!"
 
 
 def is_doing(due_date):
@@ -73,8 +33,41 @@ def is_doing(due_date):
         return False
 
 
-def start():
+def get_log(tasks):
+    log = ""
+    index = 1
+    gap = "\n\n"
+
+    for task in tasks:
+        if task['status'] == "CHECKED":
+            continue
+        log += "%d.%s\n" %(index, task['title'])
+        index += 1
+        if len(task.notes()) != 0:
+            log += "--Note:\n"
+            for note in task.notes():
+                log += "%s\n" %note
+
+        subtask_list = [subtask for subtask in task['subTasks'] if subtask['status'] != "CHECKED"]
+        if len(subtask_list) != 0:
+            log += "--Subtasks:\n"
+            sub_index = 1
+            for sub in subtask_list:
+                log += "%d)%s\n" %(sub_index, sub['title'])
+                sub_index += 1
+        log += gap
+
+    if log[-2:] == gap:
+        log = log[:-2]
+    return log
+
+
+def get_user():
     user = Client(email='cjling@aliyun.com', password='916sa...').get_user()
+    return user
+
+
+def get_tasks(user):
     cate = [cate for cate in user.categories() if cate['name'] == u"工作"]
 
     if len(cate) != 1:
@@ -88,8 +81,20 @@ def start():
         due_date = datetime.fromtimestamp(work['dueDate'] / 1000)
         if is_doing(due_date):
             tasks.append(work)
+    return tasks
 
-    save_log(user, tasks)
+
+def save_log(log):
+    Notes().create(title=get_today_title(), content=log, notebook="98_工作日志")
+
+
+def start():
+    user = get_user()
+    tasks = get_tasks(user)
+    log = get_log(tasks)
+    log = log.encode('utf-8')
+    save_log(log)
+    print "save log sucessfully!"
 
 
 def start_wrapper():
@@ -99,7 +104,7 @@ def start_wrapper():
     except Exception, e:
         print "something wrong happened try ag after 4 second:"
         print e
-        time.sleep(4)
+        time.sleep(10)
         return False
 
 
