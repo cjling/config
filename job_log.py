@@ -104,7 +104,7 @@ def start_wrapper():
     except Exception, e:
         print "something wrong happened try ag after 4 second:"
         print e
-        time.sleep(10)
+        time.sleep(30)
         return False
 
 
