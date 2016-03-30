@@ -4,10 +4,20 @@
 from anydo_api.client import Client
 from datetime import datetime
 import time
-from geeknote.geeknote import Notes
 import os
 import chardet
 from anydo_api.task import Task
+from geeknote.geeknote import Notes
+import logging
+
+
+LOG = logging.getLogger("joblogger")
+LOG.setLevel(logging.DEBUG)
+fh = logging.FileHandler("/var/log/job.log")
+fh.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s %(filename)s[%(lineno)d] %(levelname)s: %(message)s')
+fh.setFormatter(formatter)
+LOG.addHandler(fh)
 
 
 def get_today_title():
@@ -85,6 +95,7 @@ def get_tasks(user):
 
 
 def save_log(log):
+    LOG.info("bgn save log on evernote")
     Notes().create(title=get_today_title(), content=log, notebook="98_工作日志")
 
 
@@ -93,8 +104,9 @@ def start():
     tasks = get_tasks(user)
     log = get_log(tasks)
     log = log.encode('utf-8')
+    LOG.info("get log from anydo sucessfully!")
     save_log(log)
-    print "save log sucessfully!"
+    LOG.info("save log sucessfully!")
 
 
 def start_wrapper():
@@ -102,13 +114,14 @@ def start_wrapper():
         start()
         return True
     except Exception, e:
-        print "something wrong happened try ag after 4 second:"
-        print e
+        LOG.info("something wrong happened try ag after 30 second:")
+        LOG.info(e)
         time.sleep(30)
         return False
 
 
 if __name__ == '__main__':
+    LOG.info("start save log")
     flag = False
     while not flag:
         flag = start_wrapper()
