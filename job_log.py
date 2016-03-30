@@ -9,15 +9,23 @@ import chardet
 from anydo_api.task import Task
 from geeknote.geeknote import Notes
 import logging
+from logging.handlers import RotatingFileHandler
 
 
 LOG = logging.getLogger("joblogger")
 LOG.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s %(filename)s[%(lineno)d] %(levelname)s: %(message)s')
+
+rfh = RotatingFileHandler('/var/log/job.log', maxBytes=5*1024*1024,backupCount=5)
+rfh.setLevel(logging.DEBUG)
+rfh.setFormatter(formatter)
+
 fh = logging.FileHandler("/var/log/job.log")
 fh.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s %(filename)s[%(lineno)d] %(levelname)s: %(message)s')
 fh.setFormatter(formatter)
-LOG.addHandler(fh)
+
+# LOG.addHandler(fh)
+LOG.addHandler(rfh)
 
 
 def get_today_title():
