@@ -1,8 +1,8 @@
 #!/bin/bash
 
-git clone root@10.74.120.150:/home/cjling/package/zsh
-git clone root@10.74.120.150:/home/cjling/package/autojump
-git clone root@10.74.120.150:/home/cjling/package/oh-my-zsh
+git clone root@10.74.120.150:/home/cjling/proj/zsh
+git clone root@10.74.120.150:/home/cjling/proj/autojump
+git clone root@10.74.120.150:/home/cjling/proj/oh-my-zsh
 
 cd zsh
 ./Util/preconfig
