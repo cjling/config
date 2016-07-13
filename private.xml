@@ -14,13 +14,13 @@
 
         <!-- 音量减小 -->
         <autogen>__KeyToKey__
-            KeyCode::CURSOR_DOWN, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::COMMA, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
             ConsumerKeyCode::VOLUME_DOWN
         </autogen>
 
         <!-- 音量增大 -->
         <autogen>__KeyToKey__
-            KeyCode::CURSOR_UP, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::DOT, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
             ConsumerKeyCode::VOLUME_UP
         </autogen>
 
