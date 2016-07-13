@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<root>
+
+    <!-- 键位定制 -->
+    <item>
+        <name>key map</name>
+        <identifier>key_map</identifier>
+
+        <!-- 全屏 -->
+        <autogen>__KeyToKey__
+            KeyCode::RETURN, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F, ModifierFlag::COMMAND_L | ModifierFlag::CONTROL_L,
+        </autogen>
+
+        <!-- 音量减小 -->
+        <autogen>__KeyToKey__
+            KeyCode::CURSOR_DOWN, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            ConsumerKeyCode::VOLUME_DOWN
+        </autogen>
+
+        <!-- 音量增大 -->
+        <autogen>__KeyToKey__
+            KeyCode::CURSOR_UP, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            ConsumerKeyCode::VOLUME_UP
+        </autogen>
+
+        <!-- 静音 -->
+        <autogen>__KeyToKey__
+            KeyCode::BACKSLASH, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            ConsumerKeyCode::VOLUME_MUTE
+        </autogen>
+
+        <!-- 亮度加强 -->
+        <autogen>__KeyToKey__
+            KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            ConsumerKeyCode::BRIGHTNESS_UP
+        </autogen>
+
+        <!-- 亮度减弱 -->
+        <autogen>__KeyToKey__
+            KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            ConsumerKeyCode::BRIGHTNESS_DOWN
+        </autogen>
+
+        <!-- 清空回收站 -->
+        <autogen>__KeyToKey__
+            KeyCode::DELETE,         ModifierFlag::SHIFT_L   |   ModifierFlag::CONTROL_L,
+            KeyCode::DELETE,         ModifierFlag::SHIFT_L   |   ModifierFlag::COMMAND_L,
+        </autogen>
+
+        <!-- for witch -->
+        <autogen>__KeyToKey__
+            KeyCode::TAB,         ModifierFlag::COMMAND_L,
+            KeyCode::TAB,         ModifierFlag::OPTION_L     |   ModifierFlag::COMMAND_L,
+        </autogen>
+
+        <!-- hjkl -->
+        <autogen>__KeyToKey__
+            KeyCode::K, ModifierFlag::COMMAND_L,
+            KeyCode::CURSOR_UP,
+        </autogen>
+
+        <autogen>__KeyToKey__
+            KeyCode::J, ModifierFlag::COMMAND_L,
+            KeyCode::CURSOR_DOWN,
+        </autogen>
+
+        <autogen>__KeyToKey__
+            KeyCode::H, ModifierFlag::COMMAND_L,
+            KeyCode::CURSOR_LEFT,
+        </autogen>
+
+        <autogen>__KeyToKey__
+            KeyCode::L, ModifierFlag::COMMAND_L,
+            KeyCode::CURSOR_RIGHT,
+        </autogen>
+
+    </item>
+
+    <!-- macbook pro 自带键盘键位定制 -->
+    <item>
+        <name>embed key map</name>
+        <identifier>embed_key_map</identifier>
+        <device_only>DeviceVendor::APPLE_KEYBOARD_TRACKPAD</device_only>
+
+            <!-- fn作为control -->
+            <autogen>__KeyToKey__
+                KeyCode::FN,
+                KeyCode::CONTROL_L,
+            </autogen>
+
+            <!-- control作为fn -->
+            <autogen>__KeyToKey__
+                KeyCode::CONTROL_L,
+                KeyCode::FN,
+            </autogen>
+
+    </item>
+
+
+    <item>
+        <name>filco mini key map</name>
+        <identifier>filco_mini_key_map</identifier>
+        <device_only>DeviceVendor::FILCO_MINI</device_only>
+
+            <!-- option_l cmd_l 互换 -->
+            <autogen>__KeyToKey__
+                KeyCode::OPTION_L,
+                KeyCode::COMMAND_L,
+            </autogen>
+            <autogen>__KeyToKey__
+                KeyCode::COMMAND_L,
+                KeyCode::OPTION_L,
+            </autogen>
+    </item>
+
+
+
+
+    <!-- quick start -->
+    <item>
+        <name>quick start</name>
+        <identifier>quick_start</identifier>
+
+            <!-- shell -->
+            <autogen>__KeyToKey__
+                KeyCode::H, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+                KeyCode::VK_OPEN_URL_APP_ITERM
+            </autogen>
+
+            <!-- chrome -->
+            <autogen>__KeyToKey__
+                KeyCode::O, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+                KeyCode::VK_OPEN_URL_APP_CHROME
+            </autogen>
+
+            <!-- Evernote -->
+            <autogen>__KeyToKey__
+                KeyCode::N, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+                KeyCode::VK_OPEN_URL_APP_EVERNOTE
+            </autogen>
+
+            <!-- git -->
+            <autogen>__KeyToKey__
+                KeyCode::G, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+                KeyCode::VK_OPEN_URL_APP_SOURCETREE
+            </autogen>
+
+            <!-- understand -->
+            <autogen>__KeyToKey__
+                KeyCode::U, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+                KeyCode::VK_OPEN_URL_APP_UNDERSTAND
+            </autogen>
+
+            <!-- mail -->
+            <autogen>__KeyToKey__
+                KeyCode::M, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+                KeyCode::VK_OPEN_URL_APP_FOXMAIL
+            </autogen>
+
+            <!-- dash -->
+            <autogen>__KeyToKey__
+                KeyCode::I, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+                KeyCode::VK_OPEN_URL_APP_DASH
+            </autogen>
+    </item>
+
+
+    <!-- 左shift + jk设置为chrome切换前后tab的快捷键 -->
+    <item>
+        <!-- running app -->
+        <appdef>
+            <appname>chrome</appname>
+            <equal>com.google.Chrome</equal>
+        </appdef>
+
+        <name>chrome tab switcher</name>
+        <identifier>chrome_tab_swither</identifier>
+        <only>chrome</only>
+        <autogen>__KeyToKey__
+            KeyCode::K, ModifierFlag::SHIFT_L,
+            KeyCode::TAB, ModifierFlag::CONTROL_L
+        </autogen>
+        <autogen>__KeyToKey__
+            KeyCode::J, ModifierFlag::SHIFT_L,
+            KeyCode::TAB, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L
+        </autogen>
+    </item>
+
+
+    <!-- app path -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_APP_SOURCETREE</name>
+        <url type="file">/Applications/SourceTree.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_APP_CHROME</name>
+        <url type="file">/Applications/Google Chrome.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_APP_UNDERSTAND</name>
+        <url type="file">/Applications/scitools/bin/macosx/understand.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_APP_EVERNOTE</name>
+        <url type="file">/Applications/Evernote.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_APP_ITERM</name>
+        <url type="file">/Applications/iTerm.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_APP_DASH</name>
+        <url type="file">/Applications/Dash.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_APP_SPARROW</name>
+        <url type="file">/Applications/Sparrow.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_APP_FOXMAIL</name>
+        <url type="file">/Applications/Foxmail.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_APP_REEDER</name>
+        <url type="file">/Applications/Reeder.app</url>
+    </vkopenurldef>
+
+
+    <!-- apple键盘 -->
+    <devicevendordef>
+        <vendorname>APPLE_KEYBOARD_TRACKPAD</vendorname>
+        <vendorid>0x05ac</vendorid>
+    </devicevendordef>
+
+
+    <!-- pure pro键盘 -->
+    <devicevendordef>
+        <vendorname>PUREPRO</vendorname>
+        <vendorid>0x0f39</vendorid>
+    </devicevendordef>
+
+
+    <!-- filco mini键盘 -->
+    <devicevendordef>
+        <vendorname>FILCO_MINI</vendorname>
+        <vendorid>0x0a5c</vendorid>
+    </devicevendordef>
+</root>
