@@ -182,7 +182,7 @@ return
 return
 
 ^+h::
-  Run D:\ProgramFiles\Xshell_4.0.0127\XshellPortable.exe
+  Run D:\ProgramFiles\Xshell\XshellPortable.exe
 return
 
 ^+m::
