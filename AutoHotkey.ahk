@@ -11,7 +11,7 @@ return
 return
 
 ;最大化
-^+Enter::
+^+f::
   WinMaximize A
 return
 
@@ -197,6 +197,3 @@ return
   Run D:\ProgramFiles\lingoes\Lingoes.exe
 return
 
-^+f::
-  Run D:\ProgramFiles\Mozilla Firefox\firefox.exe
-return
