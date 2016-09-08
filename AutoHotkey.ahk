@@ -84,7 +84,7 @@ return
 !Enter::^Enter
 
 ;capslock to ctrl
-;capslock::ctrl
+capslock::ctrl
 
 
 ;app键位定制
