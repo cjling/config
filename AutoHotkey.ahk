@@ -170,7 +170,7 @@ loop{
 return
 
 ^+o::
-  Run D:\ProgramFiles\Google_2015-11-12\Chrome\Application\chrome.exe
+  Run D:\ProgramFiles\Google\Chrome\Application\chrome.exe
 return
 
 ^+u::
@@ -178,7 +178,7 @@ return
 return
 
 ^+n::
-  Run D:\ProgramFiles\Evernote\Evernote\Evernote.exe
+  Run D:\ProgramFiles\Evernote\Evernote.exe
 return
 
 ^+h::
@@ -186,11 +186,12 @@ return
 return
 
 ^+m::
-  Run D:\ProgramFiles\IBM\Lotus\Notes\notes.exe
+  ;Run D:\ProgramFiles\IBM\Lotus\Notes\notes.exe
+  Run C:\Program Files (x86)\zMail\app\nw.exe
 return
 
 ^+g::
-  Run D:\ProgramFiles\Atlassian\SourceTree_1.8.2.2\SourceTree.exe
+  Run D:\ProgramFiles\Atlassian\SourceTreeSetup\SourceTree.exe
 return
 
 ^+l::
