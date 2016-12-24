@@ -103,8 +103,8 @@ def get_tasks(user):
 
 
 def save_log(log):
-    LOG.info("bgn save log on evernote")
-    Notes().create(title=get_today_title(), content=log, notebook="98_工作日志")
+    LOG.info("bgn save log on yinxiang")
+    Notes().create(title=get_today_title(), content=log, notebook="98_工志")
 
 
 def start():
