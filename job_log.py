@@ -81,7 +81,8 @@ def get_log(tasks):
 
 
 def get_user():
-    user = Client(email='cjling@aliyun.com', password='916sa...').get_user()
+    passwd=os.popen("./passwd").read()
+    user = Client(email='cjling@aliyun.com', password=passwd).get_user()
     return user
 
 
