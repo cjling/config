@@ -84,7 +84,7 @@ return
 !Enter::^Enter
 
 ;capslock to ctrl
-capslock::ctrl
+;capslock::ctrl
 
 
 ;app键位定制
@@ -146,6 +146,7 @@ loop{
         +j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
         +k::SendInput {ctrl down}{tab down}{ctrl up}
         !w::SendInput {ctrl down}{w down}{ctrl up}
+        !r::SendInput {ctrl down}{r down}{ctrl up}
         return
     }
 }
