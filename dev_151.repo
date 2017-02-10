@@ -1,0 +1,5 @@
+[dev_151]
+name=dev_151
+baseurl=http://10.74.120.151
+gpgcheck=0
+enabled=1
