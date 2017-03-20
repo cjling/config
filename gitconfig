@@ -1,0 +1,9 @@
+[user]
+	name = cjling
+	email = cjling@aliyun.com
+[color]
+	branch = auto
+	ui = auto
+	diff = auto
+	status = auto
+	interactive = auto
