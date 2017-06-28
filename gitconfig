@@ -7,3 +7,5 @@
 	diff = auto
 	status = auto
 	interactive = auto
+[receive]
+    denyCurrentBranch = ignore
