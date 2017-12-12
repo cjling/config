@@ -1,5 +1,5 @@
-﻿;系统功能
-;--------------------------------------------------------------------------
+﻿;-------------------------------------系统功能-------------------------------------
+
 ;窗口关闭
 !q::
   SendInput {Alt Down}{F4}{Alt Up}
@@ -26,8 +26,8 @@ return
 return
 
 
-;ctrl系
-;--------------------------------------------------------------------------
+;-------------------------------------ctrl系--------------------------------------
+
 ;输入法切换
 !Space::
   SendInput {Ctrl Down}{Space down}{Ctrl up}{space up}
@@ -87,8 +87,8 @@ return
 ;capslock::ctrl
 
 
-;app键位定制
-;--------------------------------------------------------------------------
+;---------------------------------------app内键位定制-----------------------------------
+
 ;vistaswitcher任务切换
 loop{
 #IfWinActive, ahk_class VistaSwitcher_SwitcherWnd
@@ -97,19 +97,6 @@ loop{
         k::up
         l::right
         h::left
-        return
-    }
-}
-
-;xshell中配置
-loop{
-#IfWinActive, ahk_class Xshell4:MainWnd
-    {
-        ;tab切换
-        +j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
-        +k::SendInput {ctrl down}{tab down}{ctrl up}
-        ;粘贴
-        !v::SendInput {Shift down}{Insert down}{Shift Up}
         return
     }
 }
@@ -164,22 +151,14 @@ loop{
 }
 
 
-;运行程序
-;--------------------------------------------------------------------------
+;--------------------------------------运行程序------------------------------------
+
 ^+i::
-  Run D:\ProgramFiles\IM\ZTE IM9\IM9.exe
+  Run C:\Program Files (x86)\ZTE\ZTE IM9\IM9.exe
 return
 
 ^+o::
-  Run D:\ProgramFiles\Google\Chrome\Application\chrome.exe
-return
-
-^+u::
-  Run D:\ProgramFiles\SciTools\bin\pc-win32\understand.exe
-return
-
-^+n::
-  Run D:\ProgramFiles\Evernote\Evernote.exe
+  Run C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
 return
 
 ^+h::
@@ -187,15 +166,13 @@ return
 return
 
 ^+m::
-  ;Run D:\ProgramFiles\IBM\Lotus\Notes\notes.exe
   Run C:\Program Files (x86)\zMail\app\nw.exe
 return
 
 ^+g::
-  Run D:\ProgramFiles\Atlassian\SourceTreeSetup\SourceTree.exe
+  Run D:\ProgramFiles\SmartGit\bin\smartgit64.exe
 return
 
 ^+l::
   Run D:\ProgramFiles\lingoes\Lingoes.exe
 return
-
