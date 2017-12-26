@@ -106,8 +106,9 @@ loop{
 #IfWinActive, ahk_class Xshell::MainFrame_0
     {
         ;tab切换
-        +j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
-        +k::SendInput {ctrl down}{tab down}{ctrl up}
+        ;+j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
+        ;+k::SendInput {ctrl down}{tab down}{ctrl up}
+
         ;粘贴
         !v::SendInput {Shift down}{Insert down}{Shift Up}
         return
@@ -129,6 +130,18 @@ loop{
 ;chrome中tab切换
 loop{
 #IfWinActive, ahk_class Chrome_WidgetWin_1
+    {
+        +j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
+        +k::SendInput {ctrl down}{tab down}{ctrl up}
+        !w::SendInput {ctrl down}{w down}{ctrl up}
+        !r::SendInput {ctrl down}{r down}{ctrl up}
+        return
+    }
+}
+
+;firefox中tab切换
+loop{
+#IfWinActive, ahk_class MozillaWindowClass
     {
         +j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
         +k::SendInput {ctrl down}{tab down}{ctrl up}
