@@ -1,39 +1,30 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from anydo_api.client import Client
 from datetime import datetime
 import time
 import os
-import chardet
-from anydo_api.task import Task
-from geeknote.geeknote import Notes
+
 import logging
 from logging.handlers import RotatingFileHandler
 
+from geeknote.geeknote import Notes
+from anydo_api.client import Client
 
-LOG = logging.getLogger("joblogger")
-LOG.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s %(filename)s[%(lineno)d] %(levelname)s: %(message)s')
-
 rfh = RotatingFileHandler('/var/log/job.log', maxBytes=5*1024*1024,backupCount=5)
 rfh.setLevel(logging.DEBUG)
 rfh.setFormatter(formatter)
 
-fh = logging.FileHandler("/var/log/job.log")
-fh.setLevel(logging.DEBUG)
-fh.setFormatter(formatter)
-
-# LOG.addHandler(fh)
+LOG = logging.getLogger("job_logger")
+LOG.setLevel(logging.DEBUG)
 LOG.addHandler(rfh)
-
 
 def get_today_title():
     now_date = datetime.today()
     return "%d/%d/%d" %(now_date.year, now_date.month, now_date.day)
 
-
-def is_doing(due_date):
+def is_work_doing(due_date):
     now_date = datetime.today()
     if due_date.year < now_date.year:
         return True
@@ -50,8 +41,7 @@ def is_doing(due_date):
     else:
         return False
 
-
-def get_log(tasks):
+def get_job_log(tasks):
     log = ""
     index = 1
     gap = "\n\n"
@@ -79,14 +69,12 @@ def get_log(tasks):
         log = log[:-2]
     return log
 
-
-def get_user():
+def get_anydo_user():
     passwd=os.popen("anydo_passwd").read()
     user = Client(email='cjling@aliyun.com', password=passwd).get_user()
     return user
 
-
-def get_tasks(user):
+def get_job_tasks(user):
     cate = [cate for cate in user.categories() if cate['name'] == u"工作"]
 
     if len(cate) != 1:
@@ -98,39 +86,19 @@ def get_tasks(user):
         if work['dueDate'] is None:
             continue
         due_date = datetime.fromtimestamp(work['dueDate'] / 1000)
-        if is_doing(due_date):
+        if is_work_doing(due_date):
             tasks.append(work)
     return tasks
 
+def get_job_log_from_anydo():
+    user_cjling = get_anydo_user()
+    job_tasks = get_job_tasks(user_cjling)
+    job_log = get_job_log(job_tasks).encode('utf-8')
+    return job_log
 
-def save_log(log):
-    LOG.info("bgn save log on yinxiang")
+def save_job_log_to_yxbj(log):
     Notes().create(title=get_today_title(), content=log, notebook="98_工志")
 
-
-def start():
-    user = get_user()
-    tasks = get_tasks(user)
-    log = get_log(tasks)
-    log = log.encode('utf-8')
-    LOG.info("get log from anydo sucessfully!")
-    save_log(log)
-    LOG.info("save log sucessfully!")
-
-
-def start_wrapper():
-    try:
-        start()
-        return True
-    except Exception, e:
-        LOG.info("something wrong happened try ag after 30 second:")
-        LOG.info(e)
-        time.sleep(30)
-        return False
-
-
 if __name__ == '__main__':
-    LOG.info("start save log")
-    flag = False
-    while not flag:
-        flag = start_wrapper()
+    job_log = get_job_log_from_anydo()
+    save_job_log_to_yxbj(job_log)
