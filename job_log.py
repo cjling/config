@@ -100,5 +100,8 @@ def save_job_log_to_yxbj(log):
     Notes().create(title=get_today_title(), content=log, notebook="98_工志")
 
 if __name__ == '__main__':
-    job_log = get_job_log_from_anydo()
-    save_job_log_to_yxbj(job_log)
+    try:
+        job_log = get_job_log_from_anydo()
+        save_job_log_to_yxbj(job_log)
+    except Exception as e:
+        LOG.info(e)
