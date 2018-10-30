@@ -1,5 +1,0 @@
-[epel]
-name=CentOS-epel
-baseurl=http://mirrors.zte.com.cn/epel/7/x86_64
-gpgcheck=0
-enabled=1
