@@ -1,0 +1,37 @@
+{
+  "title": "os operation controls",
+  "rules": [
+    {
+      "description": "clean trash",
+      "manipulators": [
+
+        {
+          "type": "basic",
+
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "left_control"
+              ]
+            }
+          },
+
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+
+        }
+
+
+      ]
+    }
+  ]
+}
