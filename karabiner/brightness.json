@@ -1,0 +1,58 @@
+{
+  "title": "bright control",
+  "rules": [
+    {
+      "description": "bright control",
+      "manipulators": [
+
+        {
+          "type": "basic",
+
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "left_control"
+              ]
+            }
+          },
+
+          "to": [
+            {
+              "key_code": "display_brightness_decrement",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            }
+          ]
+
+        },
+
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "display_brightness_increment",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            }
+          ]
+        }
+
+      ]
+    }
+  ]
+}
