@@ -11,14 +11,25 @@ from logging.handlers import RotatingFileHandler
 from geeknote.geeknote import Notes
 from anydo_api.client import Client
 
-# formatter = logging.Formatter('%(asctime)s %(filename)s[%(lineno)d] %(levelname)s: %(message)s')
-rfh = RotatingFileHandler('/home/cjling/data/job.log', maxBytes=5*1024*1024*1024,backupCount=5)
-rfh.setLevel(logging.DEBUG)
-# rfh.setFormatter(formatter)
 
-LOG = logging.getLogger("job_logger")
-LOG.setLevel(logging.DEBUG)
-LOG.addHandler(rfh)
+t_rfh = RotatingFileHandler('/home/cjling/data/job.log', maxBytes=5*1024*1024*1024,backupCount=5)
+t_rfh.setLevel(logging.DEBUG)
+TLOG = logging.getLogger("t_job_logger")
+TLOG.setLevel(logging.DEBUG)
+TLOG.addHandler(t_rfh)
+
+h_rfh = RotatingFileHandler('/home/cjling/data/job.html', maxBytes=5*1024*1024*1024,backupCount=5)
+h_rfh.setLevel(logging.DEBUG)
+HLOG = logging.getLogger("h_job_logger")
+HLOG.setLevel(logging.DEBUG)
+HLOG.addHandler(h_rfh)
+
+t_log_gap = "****************************************************************\n"
+h_log_gap = "<br/><hr/><br/>"
+
+
+
+
 
 def get_today_title():
     now_date = datetime.today()
@@ -105,7 +116,12 @@ def save_job_log_to_yxbj(log):
 if __name__ == '__main__':
     try:
         job_log = get_job_log_from_anydo()
-        LOG.info("%s\n%s\n%s"%("*************************************************************************************************************************************", get_today_title(), job_log.decode('utf8').encode('gbk')))
-        # save_job_log_to_yxbj(job_log)
+
+        text_log = "%s\n%s"%(get_today_title(), job_log)
+        TLOG.info("%s\n%s"%(t_log_gap, text_log))
+
+        gbk_log = "%s\n%s"%(get_today_title(), job_log.decode('utf8').encode('gbk'))
+        html_log = gbk_log.replace("\n", "<br/>\n")
+        HLOG.info("%s\n%s"%(h_log_gap, html_log))
     except Exception as e:
-        LOG.info(e)
+        TLOG.info(e)
