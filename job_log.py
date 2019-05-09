@@ -11,10 +11,10 @@ from logging.handlers import RotatingFileHandler
 from geeknote.geeknote import Notes
 from anydo_api.client import Client
 
-formatter = logging.Formatter('%(asctime)s %(filename)s[%(lineno)d] %(levelname)s: %(message)s')
-rfh = RotatingFileHandler('/var/log/job.log', maxBytes=5*1024*1024,backupCount=5)
+# formatter = logging.Formatter('%(asctime)s %(filename)s[%(lineno)d] %(levelname)s: %(message)s')
+rfh = RotatingFileHandler('/home/cjling/data/job.log', maxBytes=5*1024*1024*1024,backupCount=5)
 rfh.setLevel(logging.DEBUG)
-rfh.setFormatter(formatter)
+# rfh.setFormatter(formatter)
 
 LOG = logging.getLogger("job_logger")
 LOG.setLevel(logging.DEBUG)
@@ -99,9 +99,13 @@ def get_job_log_from_anydo():
 def save_job_log_to_yxbj(log):
     Notes().create(title=get_today_title(), content=log, notebook="98_工志")
 
+def save_job_log_to_yxbj(log):
+    Notes().create(title=get_today_title(), content=log, notebook="98_工志")
+
 if __name__ == '__main__':
     try:
         job_log = get_job_log_from_anydo()
-        save_job_log_to_yxbj(job_log)
+        LOG.info("%s\n%s\n%s"%("*************************************************************************************************************************************", get_today_title(), job_log.decode('utf8').encode('gbk')))
+        # save_job_log_to_yxbj(job_log)
     except Exception as e:
         LOG.info(e)
