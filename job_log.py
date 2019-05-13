@@ -120,8 +120,8 @@ if __name__ == '__main__':
         text_log = "%s\n%s"%(get_today_title(), job_log)
         TLOG.info("%s\n%s"%(t_log_gap, text_log))
 
-        gbk_log = "%s\n%s"%(get_today_title(), job_log.decode('utf8').encode('gbk'))
-        html_log = gbk_log.replace("\n", "<br/>\n")
+        # gbk_log = "%s\n%s"%(get_today_title(), job_log.decode('utf8').encode('gbk'))
+        html_log = text_log.replace("\n", "<br/>\n")
         HLOG.info("%s\n%s"%(h_log_gap, html_log))
     except Exception as e:
         TLOG.info(e)
