@@ -12,13 +12,13 @@ from geeknote.geeknote import Notes
 from anydo_api.client import Client
 
 
-t_rfh = RotatingFileHandler('/home/cjling/data/job.log', maxBytes=5*1024*1024*1024,backupCount=5)
+t_rfh = RotatingFileHandler('/home/cjling/data/log/job.log', maxBytes=5*1024*1024*1024,backupCount=5)
 t_rfh.setLevel(logging.DEBUG)
 TLOG = logging.getLogger("t_job_logger")
 TLOG.setLevel(logging.DEBUG)
 TLOG.addHandler(t_rfh)
 
-h_rfh = RotatingFileHandler('/home/cjling/data/job.html', maxBytes=5*1024*1024*1024,backupCount=5)
+h_rfh = RotatingFileHandler('/home/cjling/data/log/job.html', maxBytes=5*1024*1024*1024,backupCount=5)
 h_rfh.setLevel(logging.DEBUG)
 HLOG = logging.getLogger("h_job_logger")
 HLOG.setLevel(logging.DEBUG)
