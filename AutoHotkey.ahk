@@ -103,11 +103,64 @@ loop{
 
 ;xshell5中配置
 loop{
-#IfWinActive, ahk_class Xshell::MainFrame_0
+#IfWinActive, ahk_class Xshell::MainFrame_0 
     {
         ;tab切换
         ;+j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
         ;+k::SendInput {ctrl down}{tab down}{ctrl up}
+
+        ;粘贴
+        !v::SendInput {Shift down}{Insert down}{Shift Up}
+        return
+    }
+}
+
+
+;ctrl   ^
+;shift  +
+;alt    !
+
+;PuTTY中配置
+loop{
+#IfWinActive, ahk_class PuTTY
+    {
+        ;新建window
+        !p::SendInput {ctrl down}{a down}{ctrl up}{a up}{p down}
+
+        ;粘贴
+        !v::SendInput {Shift down}{Insert down}{Shift Up}
+
+        ;关闭窗口
+        !w::SendInput {ctrl down}{d down}
+
+        ;搜索
+        !f::SendInput {ctrl down}{a down}{ctrl up}{a up}{f down}
+
+        ;切换窗口
+        +j::SendInput {ctrl down}{a down}{ctrl up}{a up}{left down}
+        +k::SendInput {ctrl down}{a down}{ctrl up}{a up}{right down}
+
+        ;调整窗口顺序
+        ^+j::SendInput {ctrl down}{a down}{ctrl up}{a up}{up down}
+        ^+k::SendInput {ctrl down}{a down}{ctrl up}{a up}{down down}
+
+        return
+    }
+}
+
+;zoc中配置
+loop{
+#IfWinActive, ahk_class ZocMainWindow_(217255114)
+    {
+        ;tab切换
+        +j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
+        +k::SendInput {ctrl down}{tab down}{ctrl up}
+
+        ;+j::+^Tab
+        ;+k::^Tab
+        
+        !o::!d
+        !p::!r
 
         ;粘贴
         !v::SendInput {Shift down}{Insert down}{Shift Up}
