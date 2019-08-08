@@ -144,6 +144,10 @@ loop{
         ^+j::SendInput {ctrl down}{a down}{ctrl up}{a up}{up down}
         ^+k::SendInput {ctrl down}{a down}{ctrl up}{a up}{down down}
 
+        ;copy-mode
+        ^+[::SendInput {ctrl down}{a down}{ctrl up}{a up}{[ down}
+        ^+]::SendInput {ctrl down}{a down}{ctrl up}{a up}{] down}
+
         return
     }
 }
