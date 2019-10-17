@@ -1,4 +1,9 @@
-﻿;-------------------------------------系统功能-------------------------------------
+﻿;ctrl   ^
+;shift  +
+;alt    !
+
+
+;-------------------------------------系统功能-------------------------------------
 
 ;窗口关闭
 !q::
@@ -101,26 +106,7 @@ loop{
     }
 }
 
-;xshell5中配置
-loop{
-#IfWinActive, ahk_class Xshell::MainFrame_0 
-    {
-        ;tab切换
-        ;+j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
-        ;+k::SendInput {ctrl down}{tab down}{ctrl up}
-
-        ;粘贴
-        !v::SendInput {Shift down}{Insert down}{Shift Up}
-        return
-    }
-}
-
-
-;ctrl   ^
-;shift  +
-;alt    !
-
-;PuTTY中配置
+;PuTTY-tmux中配置
 loop{
 #IfWinActive, ahk_class PuTTY
     {
@@ -137,61 +123,30 @@ loop{
         !f::SendInput {ctrl down}{a down}{ctrl up}{a up}{f down}
 
         ;切换窗口
-        +j::SendInput {ctrl down}{a down}{ctrl up}{a up}{left down}
-        +k::SendInput {ctrl down}{a down}{ctrl up}{a up}{right down}
+        +j::SendInput {ctrl down}{a down}{ctrl up}{a up}{j down}
+        +k::SendInput {ctrl down}{a down}{ctrl up}{a up}{k down}
 
         ;调整窗口顺序
-        ^+j::SendInput {ctrl down}{a down}{ctrl up}{a up}{up down}
-        ^+k::SendInput {ctrl down}{a down}{ctrl up}{a up}{down down}
+        ^+j::SendInput {ctrl down}{a down}{ctrl up}{a up}{h down}
+        ^+k::SendInput {ctrl down}{a down}{ctrl up}{a up}{l down}
 
         ;copy-mode
-        ^+[::SendInput {ctrl down}{a down}{ctrl up}{a up}{[ down}
-        ^+]::SendInput {ctrl down}{a down}{ctrl up}{a up}{] down}
+        ^+u::SendInput {ctrl down}{a down}{ctrl up}{a up}{[ down}
+        ^+p::SendInput {ctrl down}{a down}{ctrl up}{a up}{] down}
 
-        return
-    }
-}
+        ;启动关闭鼠标模式
+        !1::SendInput {ctrl down}{a down}{ctrl up}{a up}{- down}
+        !2::SendInput {ctrl down}{a down}{ctrl up}{a up}{= down}
 
-;zoc中配置
-loop{
-#IfWinActive, ahk_class ZocMainWindow_(217255114)
-    {
-        ;tab切换
-        +j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
-        +k::SendInput {ctrl down}{tab down}{ctrl up}
+        ;panel切换
+        ^!k::SendInput {ctrl down}{a down}{ctrl up}{a up}{up down}
+        ^!j::SendInput {ctrl down}{a down}{ctrl up}{a up}{down down}
+        ^!h::SendInput {ctrl down}{a down}{ctrl up}{a up}{left down}
+        ^!l::SendInput {ctrl down}{a down}{ctrl up}{a up}{right down}
 
-        ;+j::+^Tab
-        ;+k::^Tab
-        
-        !o::!d
-        !p::!r
-
-        ;粘贴
-        !v::SendInput {Shift down}{Insert down}{Shift Up}
-        return
-    }
-}
-
-;gvim中配置
-loop{
-#IfWinActive, ahk_class Vim
-    {
-        ;粘贴
-        !v::SendInput {Shift down}{Insert down}{Shift up}
-        ;复制
-        !c::SendInput {ctrl down}{Insert down}{ctrl up}
-        return
-    }
-}
-
-;chrome中tab切换
-loop{
-#IfWinActive, ahk_class Chrome_WidgetWin_1
-    {
-        +j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
-        +k::SendInput {ctrl down}{tab down}{ctrl up}
-        !w::SendInput {ctrl down}{w down}{ctrl up}
-        !r::SendInput {ctrl down}{r down}{ctrl up}
+        ;切分窗口
+        ^+\::SendInput {ctrl down}{a down}{ctrl up}{a up}{\ down}
+        ^+BackSpace::SendInput {ctrl down}{a down}{ctrl up}{a up}{" down}
         return
     }
 }
@@ -204,6 +159,10 @@ loop{
         +k::SendInput {ctrl down}{tab down}{ctrl up}
         !w::SendInput {ctrl down}{w down}{ctrl up}
         !r::SendInput {ctrl down}{r down}{ctrl up}
+
+        ;调整窗口顺序
+        ^+j::SendInput {< down}{< up}{< down}{< up}
+        ^+k::SendInput {> down}{> up}{> down}{> up}
         return
     }
 }
@@ -227,22 +186,11 @@ loop{
   Run C:\Program Files (x86)\ZTE\ZTE IM9\IM9.exe
 return
 
-^+o::
-  Run C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-return
-
-^+h::
-  Run D:\ProgramFiles\Xshell\XshellPortable.exe
-return
-
-^+m::
-  Run C:\Program Files (x86)\zMail\app\nw.exe
-return
-
 ^+g::
-  Run D:\ProgramFiles\SmartGit\bin\smartgit64.exe
+  Run D:\ProgramFiles\SmartGit\bin\smartgit.exe
 return
 
 ^+l::
   Run D:\ProgramFiles\lingoes\Lingoes.exe
 return
+
