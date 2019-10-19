@@ -29,7 +29,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                   "org.mozilla.firefox",
-                  "com.google.Chrome"
+                  "com.google.Chrome",
+                  "com.apple.Safari"
               ]
             }
           ]
@@ -70,7 +71,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                   "org.mozilla.firefox",
-                  "com.google.Chrome"
+                  "com.google.Chrome",
+                  "com.apple.Safari"
               ]
             }
           ]
@@ -111,7 +113,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                   "org.mozilla.firefox",
-                  "com.google.Chrome"
+                  "com.google.Chrome",
+                  "com.apple.Safari"
               ]
             }
           ]
@@ -148,7 +151,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                   "org.mozilla.firefox",
-                  "com.google.Chrome"
+                  "com.google.Chrome",
+                  "com.apple.Safari"
               ]
             }
           ]
