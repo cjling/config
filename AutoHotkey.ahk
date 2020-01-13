@@ -147,6 +147,13 @@ loop{
         ;切分窗口
         ^+\::SendInput {ctrl down}{a down}{ctrl up}{a up}{\ down}
         ^+BackSpace::SendInput {ctrl down}{a down}{ctrl up}{a up}{" down}
+
+        ;切换
+        ^+h::SendInput {ctrl down}{a down}{ctrl up}{a up}{s down}
+
+        ;命令行
+        ^+;::SendInput {ctrl down}{a down}{ctrl up}{a up}{: down}
+
         return
     }
 }
