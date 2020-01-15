@@ -122,7 +122,7 @@ loop{
         ;搜索
         !f::SendInput {ctrl down}{a down}{ctrl up}{a up}{f down}
 
-        ;切换窗口
+        ;tab前后切换
         +j::SendInput {ctrl down}{a down}{ctrl up}{a up}{j down}
         +k::SendInput {ctrl down}{a down}{ctrl up}{a up}{k down}
 
@@ -154,6 +154,17 @@ loop{
         ;命令行
         ^+;::SendInput {ctrl down}{a down}{ctrl up}{a up}{: down}
 
+        ;tab直接切换
+        ^+1::SendInput {ctrl down}{a down}{ctrl up}{a up}{1 down}
+        ^+2::SendInput {ctrl down}{a down}{ctrl up}{a up}{2 down}
+        ^+3::SendInput {ctrl down}{a down}{ctrl up}{a up}{3 down}
+        ^+4::SendInput {ctrl down}{a down}{ctrl up}{a up}{4 down}
+        ^+5::SendInput {ctrl down}{a down}{ctrl up}{a up}{5 down}
+        ^+6::SendInput {ctrl down}{a down}{ctrl up}{a up}{6 down}
+        ^+7::SendInput {ctrl down}{a down}{ctrl up}{a up}{7 down}
+        ^+8::SendInput {ctrl down}{a down}{ctrl up}{a up}{8 down}
+        ^+9::SendInput {ctrl down}{a down}{ctrl up}{a up}{9 down}
+
         return
     }
 }
@@ -167,9 +178,13 @@ loop{
         !w::SendInput {ctrl down}{w down}{ctrl up}
         !r::SendInput {ctrl down}{r down}{ctrl up}
 
-        ;调整窗口顺序
-        ^+j::SendInput {< down}{< up}{< down}{< up}
-        ^+k::SendInput {> down}{> up}{> down}{> up}
+	;调整窗口顺序
+	^+j::SendInput {ctrl down}{shift down}{pgup down}{ctrl up}{shift up}
+	^+k::SendInput {ctrl down}{shift down}{pgdn down}{ctrl up}{shift up}
+
+	;新建tab
+	!p::SendInput {ctrl down}{t down}{ctrl up}
+
         return
     }
 }
