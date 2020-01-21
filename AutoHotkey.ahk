@@ -154,7 +154,7 @@ loop{
         ;命令行
         ^+;::SendInput {ctrl down}{a down}{ctrl up}{a up}{: down}
 
-        ;tab直接切换
+        ;直接切换窗口
         ^+1::SendInput {ctrl down}{a down}{ctrl up}{a up}{1 down}
         ^+2::SendInput {ctrl down}{a down}{ctrl up}{a up}{2 down}
         ^+3::SendInput {ctrl down}{a down}{ctrl up}{a up}{3 down}
