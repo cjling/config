@@ -1,0 +1,77 @@
+{
+  "title": "keyboard",
+  "rules": [
+
+
+
+    {
+      "description": "switch cmd&alt",
+      "manipulators": [
+        {
+            "type": "basic",
+            "from": { "key_code": "left_command" },
+            "to": { "key_code": "left_option" },
+            "conditions": [
+                {"type": "frontmost_application_unless", "bundle_identifiers": ["org.virtualbox.app.VirtualBoxVM"]},
+                {"type": "device_if", "identifiers": [{"vendor_id": 2652}]}
+            ]
+        },
+
+        {
+            "type": "basic",
+            "from": { "key_code": "left_option" },
+            "to": { "key_code": "left_command" },
+            "conditions": [
+                {"type": "frontmost_application_unless", "bundle_identifiers": ["org.virtualbox.app.VirtualBoxVM"]},
+                {"type": "device_if", "identifiers": [{"vendor_id": 2652}]}
+            ]
+        },
+
+        {
+            "type": "basic",
+            "from": { "key_code": "left_command" },
+            "to": { "key_code": "left_option" },
+            "conditions": [
+                {"type": "frontmost_application_if", "bundle_identifiers": ["org.virtualbox.app.VirtualBoxVM"]},
+                {"type": "device_if", "identifiers": [{"vendor_id": 1452}]}
+            ]
+        },
+
+        {
+            "type": "basic",
+            "from": { "key_code": "left_option" },
+            "to": { "key_code": "left_command" },
+            "conditions": [
+                {"type": "frontmost_application_if", "bundle_identifiers": ["org.virtualbox.app.VirtualBoxVM"]},
+                {"type": "device_if", "identifiers": [{"vendor_id": 1452}]}
+            ]
+        }
+
+
+      ]
+    },
+
+
+
+    {
+      "description": "switch fn&ctrl",
+      "manipulators": [
+        {
+            "type": "basic",
+            "from": { "key_code": "fn" },
+            "to": { "key_code": "left_control" },
+            "conditions": [{"type": "device_if", "identifiers": [{"vendor_id": 1452}]}]
+        },
+
+        {
+            "type": "basic",
+            "from": { "key_code": "left_control" },
+            "to": { "key_code": "fn" },
+            "conditions": [{"type": "device_if", "identifiers": [{"vendor_id": 1452}]}]
+        }
+      ]
+    }
+
+
+  ]
+}
