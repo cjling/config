@@ -147,7 +147,81 @@
                     "from": {"key_code": "semicolon", "modifiers": {"mandatory": ["left_shift", "left_control"]}},
                     "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "semicolon", "modifiers":["left_shift"]}],
                     "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
+                },
+
+                {
+                    "type": "basic",
+                    "description": "switch win 1",
+                    "from": {"key_code": "1", "modifiers": {"mandatory": ["left_shift", "left_control"]}},
+                    "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "1"}],
+                    "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
+                },
+
+                {
+                    "type": "basic",
+                    "description": "switch win 2",
+                    "from": {"key_code": "2", "modifiers": {"mandatory": ["left_shift", "left_control"]}},
+                    "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "2"}],
+                    "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
+                },
+
+                {
+                    "type": "basic",
+                    "description": "switch win 3",
+                    "from": {"key_code": "3", "modifiers": {"mandatory": ["left_shift", "left_control"]}},
+                    "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "3"}],
+                    "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
+                },
+
+                {
+                    "type": "basic",
+                    "description": "switch win 4",
+                    "from": {"key_code": "4", "modifiers": {"mandatory": ["left_shift", "left_control"]}},
+                    "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "4"}],
+                    "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
+                },
+
+                {
+                    "type": "basic",
+                    "description": "switch win 5",
+                    "from": {"key_code": "5", "modifiers": {"mandatory": ["left_shift", "left_control"]}},
+                    "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "5"}],
+                    "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
+                },
+
+                {
+                    "type": "basic",
+                    "description": "switch win 6",
+                    "from": {"key_code": "6", "modifiers": {"mandatory": ["left_shift", "left_control"]}},
+                    "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "6"}],
+                    "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
+                },
+
+                {
+                    "type": "basic",
+                    "description": "switch win 7",
+                    "from": {"key_code": "7", "modifiers": {"mandatory": ["left_shift", "left_control"]}},
+                    "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "7"}],
+                    "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
+                },
+
+                {
+                    "type": "basic",
+                    "description": "switch win 8",
+                    "from": {"key_code": "8", "modifiers": {"mandatory": ["left_shift", "left_control"]}},
+                    "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "8"}],
+                    "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
+                },
+
+                {
+                    "type": "basic",
+                    "description": "switch win 9",
+                    "from": {"key_code": "9", "modifiers": {"mandatory": ["left_shift", "left_control"]}},
+                    "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "9"}],
+                    "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
                 }
+
+
             ]
         }
     ]
