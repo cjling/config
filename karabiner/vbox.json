@@ -1,11 +1,11 @@
 {
-  "title": "keyboard",
+  "title": "vbox",
   "rules": [
 
 
 
     {
-      "description": "switch cmd&alt",
+      "description": "switch cmd&alt in vbox",
       "manipulators": [
 
         {
