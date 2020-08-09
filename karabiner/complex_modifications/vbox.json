@@ -1,11 +1,9 @@
 {
-  "title": "vbox",
+  "title": "vbox control",
   "rules": [
 
-
-
     {
-      "description": "switch cmd&alt in vbox",
+      "description": "switch cmd<->alt in vbox",
       "manipulators": [
 
         {
@@ -26,12 +24,8 @@
             ]
         }
 
-
       ]
     }
-
-
-
 
   ]
 }

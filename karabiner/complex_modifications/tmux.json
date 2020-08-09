@@ -1,8 +1,8 @@
 {
-    "title": "iterm2_tmux",
+    "title": "tmux control in iterm2",
     "rules": [
         {
-            "description": "iterm2_tmux",
+            "description": "tmux control in iterm2",
             "manipulators": [
 
                 {
@@ -12,7 +12,6 @@
                     "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "k"}],
                     "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
                 },
-
 
                 {
                     "type": "basic",
@@ -101,7 +100,8 @@
                     "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "down_arrow"}],
                     "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
                 },
-{
+
+                {
                     "type": "basic",
                     "description": "panel left",
                     "from": {"key_code": "h", "modifiers": {"mandatory": ["left_command", "left_control"]}},
@@ -220,7 +220,6 @@
                     "to": [{"key_code": "a", "modifiers":["left_control"]}, {"key_code": "9"}],
                     "conditions": [{"type": "frontmost_application_if", "bundle_identifiers": ["com.googlecode.iterm2"]}]
                 }
-
 
             ]
         }

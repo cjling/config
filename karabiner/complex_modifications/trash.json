@@ -1,8 +1,8 @@
 {
-  "title": "os operation controls",
+  "title": "trash control",
   "rules": [
     {
-      "description": "clean trash",
+      "description": "trash control",
       "manipulators": [
 
         {
