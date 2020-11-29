@@ -9,7 +9,7 @@
           "type": "basic",
 
           "from": {
-            "key_code": "delete_forward",
+            "key_code": "delete_or_backspace",
             "modifiers": {
               "mandatory": [
                 "left_shift",
