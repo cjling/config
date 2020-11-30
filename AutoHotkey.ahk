@@ -236,4 +236,3 @@ return
 ^+l::
   Run D:\ProgramFiles\lingoes\Lingoes.exe
 return
-
