@@ -30,6 +30,15 @@ return
   SendInput {LWin Down}{d}{LWin Up}
 return
 
+;切换app的桌面
+^+left::
+  SendInput {Shift Down}{LWin Down}{left Down}{Shift Up}{LWin Up}{left Up}
+return
+
+^+right::
+  SendInput {Shift Down}{LWin Down}{right Down}{Shift Up}{LWin Up}{right Up}
+return
+
 
 ;-------------------------------------ctrl系--------------------------------------
 
@@ -164,6 +173,18 @@ loop{
         ^+7::SendInput {ctrl down}{a down}{ctrl up}{a up}{7 down}
         ^+8::SendInput {ctrl down}{a down}{ctrl up}{a up}{8 down}
         ^+9::SendInput {ctrl down}{a down}{ctrl up}{a up}{9 down}
+
+        return
+    }
+}
+
+;moboxterm
+loop{
+#IfWinActive, ahk_class TMobaXtermForm
+    {
+        +j::SendInput {ctrl down}{shift down}{tab down}{ctrl up}{shift up}
+        +k::SendInput {ctrl down}{tab down}{ctrl up}
+        !w::SendInput {ctrl down}{w down}{ctrl up}
 
         return
     }
