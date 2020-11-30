@@ -1,8 +1,8 @@
 {
-    "title": "web browser control",
+    "title": "browser control in web",
     "rules": [
         {
-            "description": "web browser control",
+            "description": "browser control in web",
             "manipulators": [
                 {
                     "type": "basic",

@@ -1,8 +1,8 @@
 {
-  "title": "lock",
+  "title": "lock control",
   "rules": [
     {
-      "description": "lock",
+      "description": "lock control",
       "manipulators": [
 
         {
