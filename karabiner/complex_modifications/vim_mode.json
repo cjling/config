@@ -3,7 +3,7 @@
   "rules": [
 
     {
-      "description": "vim mode control (Change left command + h/j/k/l to Arrows)",
+      "description": "vim mode control",
       "manipulators": [
         {
           "type": "basic",
